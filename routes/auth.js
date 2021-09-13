@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User= require("../models/User.model")
 
+
 /* GET home page */
 router.get("/signup", (req, res, next) => {
   res.render("signup");
