@@ -19,6 +19,7 @@ router.get("/login", (req,res, next) => {
 router.post("/signup", (req, res, next) => {
 	console.log(req.body);
 	const { username, password } = req.body;
+
 	if (password.length < 4) {
 		// if not show the signup form again with a message
 		res.render('signup', { message: 'Your password needs to be 4 chars min' });
@@ -52,6 +53,7 @@ router.post("/signup", (req, res, next) => {
 			// 	})
 		}// 
 	})
+
 	User.create ({
 		username: username,
     	password: password
