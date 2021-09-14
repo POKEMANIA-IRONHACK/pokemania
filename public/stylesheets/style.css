@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #ffde41;
 }
 
 a {
@@ -14,32 +15,35 @@ h1 {
 
 header {
 
-  background-color: white;
+  background-color:#ffde41;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: ;
   margin-block: 10px;
 
 }
 
-.intro > img {
-  height: 70px;
-  width: 110px;
+.intro {
+  display: flex;
+  flex-direction: column;
 }
+
+.intro > img {
+margin-block: 20px;
+}
+
+
 
 #poke-image1{
   height: 400px;
-  margin-left: 50px;
-  display: flex;
-  align-items: flex-end;
-  padding-left: 600px;
+  padding-left: 100px;
   padding-top: 0px;
+  margin-left: 100px;
 }
 
 .team {
 
-  border: 0.0625em solid #dedede;
+  border: 0.0625em solid darkgrey;
   padding: 50px;
   margin: 0 0 1.25em;
   position: relative;
@@ -49,7 +53,7 @@ header {
 .team > h2 {
 
   background-color: #f0f0f0;
-  color: #4d6ad8;
+  color: blue;
   font-size: 1.5em;
   font-weight: 700;
   display: inline-block;
@@ -66,7 +70,7 @@ header {
 
 .selector {
  
-  border: 0.0625em solid #dedede;
+  border: 0.0625em solid darkgrey;
   padding: 10px;
   margin: 0 0 1.25em;
   position: relative;
@@ -76,7 +80,7 @@ header {
 .selector > h2 {
 
   background-color: #f0f0f0;
-  color: #4d6ad8;
+  color: blue;
   font-size: 1.5em;
   font-weight: 700;
   display: inline-block;
