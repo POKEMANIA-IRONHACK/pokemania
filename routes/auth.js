@@ -52,54 +52,6 @@ router.post("/signup", (req, res, next) => {
 			// 	})
 		}// 
 	})
-	User.findOne({ username: username })
-	.then(userFromDB => {
-		// if user exists 
-		if (userFromDB !== null) {
-			// we render signup again
-			res.render('signup', { message: 'Username is already taken' });
-		} else {
-			// if we reach this line the username can be used
-			// password as the value for the password field
-			const salt = bcrypt.genSaltSync();
-			const hash = bcrypt.hashSync(password, salt);
-			console.log(hash);
-			// we create a document for that user in the db with the hashed 
-			User.create({ username: username, password: hash })
-				.then(createdUser => {
-					console.log(createdUser);
-					res.redirect('/');
-				})
-				.catch(err => {
-					next(err);
-				})
-		}
-	})
-	User.findOne({ username: username })
-	.then(userFromDB => {
-		// if user exists 
-		if (userFromDB !== null) {
-			// we render signup again
-			res.render('signup', { message: 'Username is already taken' });
-		} else {
-			// if we reach this line the username can be used
-			// password as the value for the password field
-			const salt = bcrypt.genSaltSync();
-			const hash = bcrypt.hashSync(password, salt);
-			console.log(hash);
-			// we create a document for that user in the db with the hashed 
-			User.create({ username: username, password: hash })
-				.then(createdUser => {
-					console.log(createdUser);
-					res.redirect('/');
-				})
-				.catch(err => {
-					next(err);
-				})
-		}
-	})
-	
-	
 	User.create ({
 		username: username,
     	password: password
