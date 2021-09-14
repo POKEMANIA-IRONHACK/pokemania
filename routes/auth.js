@@ -1,16 +1,12 @@
 const router = require("express").Router();
 const User= require("../models/User.model")
+const bcrypt = require('bcrypt');
 
 
 /* GET home page */
 router.get("/signup", (req, res, next) => {
   res.render("signup");
 });
-
-
-router.get("/login", (req,res, next) => {
-  res.render("login");
-})
 
 // signing up a new user into the db ✅
 // username cannot be empty ✅
@@ -37,33 +33,50 @@ router.post("/signup", (req, res, next) => {
 			// we render signup again
 			res.render('signup', { message: 'Username is already taken' });
 		} else {
-			// // if we reach this line the username can be used
-			// // password as the value for the password field
-			// const salt = bcrypt.genSaltSync();
-			// const hash = bcrypt.hashSync(password, salt);
-			// console.log(hash);
-			// // we create a document for that user in the db with the hashed 
-			// User.create({ username: username, password: hash })
-			// 	.then(createdUser => {
-			// 		console.log(createdUser);
-			// 		res.redirect('/');
-			// 	})
-			// 	.catch(err => {
-			// 		next(err);
-			// 	})
-		}// 
-	})
-
-	User.create ({
-		username: username,
-    	password: password
-	})
-		.then(createdUser => {
+		const salt = bcrypt.genSaltSync();
+		const hash = bcrypt.hashSync(password, salt);
+			User.create ({
+				username: username,
+				password: hash
+			})
+			.then(createdUser => {
 			console.log(createdUser);
 			res.redirect('/main');
-		})
-		.catch(err => next(err));
+			})
+			.catch(err => next(err));
+		}
+	})
+
 });
+
+// Login
+router.get("/login", (req,res, next) => {
+	res.render("login");
+  })
+router.post('/login', (req, res, next) => {
+const { username, password } = req.body;
+// check if we have a user with that username in the database
+User.findOne({ username: username })
+	.then(userFromDB => {
+	if (userFromDB === null) {
+	// if not -> the username is not correct -> show login again
+	res.render('login', { message: 'not the right username' })
+	}
+	// username is correct
+	// we check the password from the input against the hash in the database
+	// compareSync() returns true or false 
+	if (bcrypt.compareSync(password, userFromDB.password)) {
+		// if it matches -> all credentials are correct
+		// we log the user in
+		//req.session.user = userFromDB;
+		res.redirect('/main');
+	} else {
+		// if the password is not matching -> show the form again 
+		res.render('login', { message: 'not the right password' })
+		}
+	})
+});  
+  
 
 module.exports = router;
 
