@@ -7,6 +7,10 @@ const userSchema = new Schema({
     // unique: true -> Ideally, should be unique, but its up to you
   },
   password: String,
+  teams: {
+    type: Schema.Types.ObjectId,
+    ref: 'Team'
+  }
 });
 
 const User = model("User", userSchema);
