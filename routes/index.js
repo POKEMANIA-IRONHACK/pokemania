@@ -21,4 +21,12 @@ router.get("/main", (req,res,next) => {
   })
 })
 
+// get the images 
+
+router.get("/main", (rq,res,next) => {
+  axios
+  .get('')
+})
+
 module.exports = router;
+
