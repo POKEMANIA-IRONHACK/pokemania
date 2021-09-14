@@ -22,15 +22,4 @@ router.get("/main", (req,res,next) => {
   })
 })
 
-
-
-
-  const x = response.data.results
-  console.log(response.data.results)
-// Display Pokemon names
-  res.render("main",{pokemon: x});
-  })
-})
-
-
 module.exports = router;

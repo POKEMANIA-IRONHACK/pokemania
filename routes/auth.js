@@ -62,11 +62,6 @@ router.post("/signup", (req, res, next) => {
 			console.log(createdUser);
 			res.redirect('/main');
 		})
-
-
-
-
-
 		.catch(err => next(err));
 });
 
