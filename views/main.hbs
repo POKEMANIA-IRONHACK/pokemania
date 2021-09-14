@@ -1,4 +1,70 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+</head>
+<body>
+
+<header>
+
+    <div class="intro">
+
+        <img src="images/2560px-International_Pokémon_logo.svg.png" alt="logo" style="height: 180px;">
+        <img src="images/3345f008909edd9cc8374969d15e1a8f.png" alt="logo" style="height: 70PX;">
+
+
+    </div>
+
+    <div class="intro-2">
+
+        <img  id="poke-image1" src="images/pokemon_PNG107.png" alt="pokeimage">
+
+    </div>
+
+</header>
+
+<img src="" alt="">
+
+<article class="landing">
+
+    <section class="team"> 
+
+        <h2> Your Team </h2>
+
+    
+
+    </section>
+
+
+    <section class="selector"> 
+
+    <h2> Your Options</h2>
+
+    <div class="pokemon-display">
+    
+    <ul>
+        {{#each pokemon}}
+
+        <li>{{this.name}} </li>
+
+        {{/each}}
+        
+    </ul>
+
+
+
+    </div>
+
+
+
+    </section>
+
+
 <h1>this is my Profil</h1>
 
 <!-- Loop through Pokemon results & display them in a list -->
