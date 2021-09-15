@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
 // Get API data
 router.get("/main", (req,res,next) => {
   axios
-  .get('https://pokeapi.co/api/v2/pokemon')
+  .get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1118' )
   .then((response) => {
   const x = response.data.results
   console.log(response.data.results)
@@ -23,10 +23,6 @@ router.get("/main", (req,res,next) => {
 
 // get the images 
 
-router.get("/main", (rq,res,next) => {
-  axios
-  .get('')
-})
 
 module.exports = router;
 
