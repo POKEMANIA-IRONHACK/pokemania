@@ -33,8 +33,9 @@
 
     <section class="team"> 
 
-        <h2> Your Team </h2>
+       <div class="card-picked" id="card-picked">
 
+        </div>
     
 
     </section>
@@ -52,22 +53,31 @@
         </div>
 
 
-
-        <div class="cardContainer">
-
-            {{#each pokemon}}
-                <div class="card">
-                    <h2> {{this.name}} </h2> 
-                    <p> {{this.url.sprites}} </p>
+                
+                <div class="cardContainer">
+                {{#each pokemonList}}
+                <div class="card" id="card">
+                <h1>{{name}}</h1>
+                <h1> {{type}} </h1>
+                <h1> {{abilities}} </h1>
+                <h1> {{basestats}} </h1>
+                <div class="id" style="visibility:hidden">
+                {{_id}}
                 </div>
-            {{/each}}
+                </div>
+                 {{/each}}
+            {{!-- {{#each pokemon}}
+                <div class="card">
+                   <p>{{this.name}}</p>
+                    <p> {{this.url}} </p>
+                </div>
+            {{/each}} --}}
 
         </div>
 
 
 
     </section>
-
 
 <!-- Loop through Pokemon results & display them in a list -->
 
