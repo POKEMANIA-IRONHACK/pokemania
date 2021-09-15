@@ -18,6 +18,7 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
+
 // default value for title local
 const projectName = "Pokemania";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
@@ -36,6 +37,26 @@ app.use("/", login)
 
 const createUser = require("./routes/auth")
 app.use("/", createUser)
+
+// session configuration
+
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const DB_URL = process.env.MONGODB_URI
+
+app.use(
+	session({
+		secret: process.env.SESSION_SECRET,
+		// for how long is the user logged in -> this would be one day 	
+		cookie: { maxAge: 1000 * 60 * 60 * 24 },
+		resave: true,
+		saveUninitialized: false,
+		store: MongoStore.create({
+			mongoUrl: DB_URL
+		})
+	})
+)
+// end of session configuration
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

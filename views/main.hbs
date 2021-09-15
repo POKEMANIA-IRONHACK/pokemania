@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +59,6 @@
             {{#each pokemon}}
                 <div class="card">
                     <h2> {{this.name}} </h2> 
-                    <p> {{this.url.sprites}} </p>
                 </div>
             {{/each}}
 
@@ -69,9 +69,10 @@
     </section>
 
 
-<!-- Loop through Pokemon results & display them in a list -->
+<h1>this is my Profil</h1>
 
-</article>
+<!-- Loop through Pokemon results & display them in a list -->
+{{#each pokemon}}
 
 <footer>
 
@@ -91,4 +92,3 @@
 </footer>
 </body>
 </html>
-
