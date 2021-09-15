@@ -38,8 +38,33 @@ app.use("/", login)
 const createUser = require("./routes/auth")
 app.use("/", createUser)
 
+
 // const pokemons = require("./routes/pokemons");
 // app.use("/", pokemons);
+
+
+
+// session configuration
+
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const DB_URL = process.env.MONGODB_URI
+
+app.use(
+	session({
+		secret: process.env.SESSION_SECRET,
+		// for how long is the user logged in -> this would be one day 	
+		cookie: { maxAge: 1000 * 60 * 60 * 24 },
+		resave: true,
+		saveUninitialized: false,
+		store: MongoStore.create({
+			mongoUrl: DB_URL
+		})
+	})
+)
+
+// end of session configuration
+
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
