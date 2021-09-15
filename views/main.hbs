@@ -45,20 +45,24 @@
 
     <h2> Your Options</h2>
 
-    <div class="pokemon-display">
-    
-    <ul>
-        {{#each pokemon}}
+        <div class="poke-filters">
+            <h3> Filters </h3>
 
-        <li>{{this.name}} </li>
 
-        {{/each}}
         
-    </ul>
+        </div>
 
 
 
-    </div>
+        <div class="cardContainer">
+
+            {{#each pokemon}}
+                <div class="card">
+                    <h2> {{this.name}} </h2> 
+                </div>
+            {{/each}}
+
+        </div>
 
 
 
@@ -70,6 +74,21 @@
 <!-- Loop through Pokemon results & display them in a list -->
 {{#each pokemon}}
 
-<li>{{this.name}}</li>
+<footer>
 
-{{/each}}
+    <div class="text-footer">
+    <h2> This is a Ironhack project made by @Kumax @Carl @andalucinando <br> for the web development bootcamp in Berlin Summer 2021 </h2>
+    <a href="https://github.com/kumax0"> Follow Kumax on Github</a> <br>
+    <a href="https://github.com/andalucinando"> Follow Miguel on Github</a> <br>
+    <a href="https://github.com/CarlBerthold"> Follow Carl on Github</a> <br>
+    </div>
+
+    <div class="images-footer">
+
+    <img src="images/pokemon_PNG147.png" alt="pokeimage" height="500px">
+    <img src="images/bibi.png" alt="pokeimage" height="300" style="margin-top: 100px;">
+    <img src="images/bulbasur.png" alt="pokeimage" height="200px" style="margin-top: 150px;">
+    </div>
+</footer>
+</body>
+</html>
