@@ -17,6 +17,9 @@
     "mongoose": "^6.0.5",
     "morgan": "^1.10.0",
     "node": "^16.9.1",
+    "pokeapi": "^0.0.1",
+    "pokedex-promise-v2": "^3.3.2",
+    "pokemon-sprites": "github:PokeAPI/sprites",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
