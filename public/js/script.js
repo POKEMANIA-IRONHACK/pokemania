@@ -44,8 +44,12 @@ document.querySelectorAll(".card").forEach(card => {
  
     name: e.currentTarget.querySelector(".name").innerText,
     type: e.currentTarget.querySelector(".type").innerText,
-    abilities: e.currentTarget.querySelector(".abilities").innerText,
-    basestats: e.currentTarget.querySelector(".basestats").innerText,
+    baseHP: e.currentTarget.querySelector(".base-hp").innerText,
+    baseAttack: e.currentTarget.querySelector(".base-attack").innerText,
+    baseDefense: e.currentTarget.querySelector(".base-defense").innerText,
+    baseSpecialAttack: e.currentTarget.querySelector(".base-spattack").innerText,
+    baseSpecialDefense: e.currentTarget.querySelector(".base-spdefense").innerText,
+    baseSpeed: e.currentTarget.querySelector(".base-speed").innerText,
     id: e.currentTarget.querySelector(".id").innerText
   }
 
@@ -80,7 +84,7 @@ document.querySelectorAll(".card").forEach(card => {
 function render() {
   let list = ""
   pickedTeam.forEach(pokemon =>
-    list += `${pokemon.name} Type: ${pokemon.type} Abilities: ${pokemon.abilities} Base Stats: ${pokemon.basestats}`)
+    list += `${pokemon.name} Type: ${pokemon.type} Base Stats: ${pokemon.baseHP} ${pokemon.baseAttack} ${pokemon.baseDefense} ${pokemon.baseSpecialAttack} ${pokemon.baseSpecialDefense} ${pokemon.baseSpeed}`)
   document.querySelector(".card-picked").innerHTML = list
   console.log("I am rendering")
 }

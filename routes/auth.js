@@ -41,7 +41,7 @@ router.post("/signup", (req, res, next) => {
 			})
 			.then(createdUser => {
 			console.log(createdUser);
-			res.redirect('/main');
+			res.redirect('/login');
 			})
 			.catch(err => next(err));
 		}
@@ -49,11 +49,66 @@ router.post("/signup", (req, res, next) => {
 
 });
 
+
+// session configuration
+
+// const session = require('express-session');
+// const MongoStore = require('connect-mongo');
+// const DB_URL = process.env.MONGO;
+
+// app.use(
+// 	session({
+// 		secret: process.env.SESSION_SECRET,
+// 		// for how long is the user logged in -> this would be one day 	
+// 		cookie: { maxAge: 1000 * 60 * 60 * 24 },
+// 		resave: true,
+// 		saveUninitialized: false,
+// 		store: MongoStore.create({
+// 			mongoUrl: DB_URL
+// 		})
+// 	})
+// )
+// end of session configuration
+
+
+
+// create a middleware to check if the user is logged in
+// const loginCheck = () => {
+// 	return (req, res, next) => {
+// 	  // is there a logged in user?
+// 	  if (req.session.user) {
+// 		// if yes -> proceed as requested
+// 		next();
+// 	  } else {
+// 		// if there is no logged in user -> redirect to login
+// 		res.redirect('/login');
+// 	  }
+// 	}
+//   }
+
+
+//   // this route is now protected -> can only be accessed by a logged in user
+// router.get('/main', loginCheck(), (req, res, next) => {
+// 	// we can access a cookie
+// 	console.log('this is the cookie: ', req.cookies);
+// 	// this is how we can set a cookie 
+// 	res.cookie('myCookie', 'hello world');
+// 	// this is how you can delete a cookie
+// 	res.clearCookie('myCookie');
+// 	// we retrieve the logged in user from the session
+// 	const loggedInUser = req.session.user;
+// 	console.log(loggedInUser);
+// 	// and pass the user object into the view
+// 	res.render('main', { user: loggedInUser });
+//   });
+
+
+
 // Login
 router.get("/login", (req,res, next) => {
 	res.render("login");
   })
-router.post('/login', (req, res, next) => {
+router.post('/login',(req, res, next) => {
 const { username, password } = req.body;
 // check if we have a user with that username in the database
 User.findOne({ username: username })
@@ -68,7 +123,7 @@ User.findOne({ username: username })
 	if (bcrypt.compareSync(password, userFromDB.password)) {
 		// if it matches -> all credentials are correct
 		// we log the user in
-		req.session.user = userFromDB;
+		//req.session.user = userFromDB;
 		res.redirect('/main');
 	} else {
 		// if the password is not matching -> show the form again 
