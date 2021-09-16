@@ -84,15 +84,23 @@
   <figcaption>
     <h1 class="name"> {{name.english}} </h1>
 
+    <div class="card-image">
+
+        <img src="" alt="">
+
+    </div>
+
     <h3 class="type">
       {{type}}
     </h3>
 
-    <table>
+    <div class="card-show">
+
+    <table class="poketable">
       <tbody>
     <tr class="base-hp">
         <th>HP ❤️</th>
-        <td> {{base.HP}}</td>
+        <td>{{base.HP}}</td>
     </tr>
 
       <tr  class="base-attack">
@@ -104,7 +112,12 @@
         <th>Defense 🛡️</th>
         <td>{{base.Defense}}</td>
       </tr>
+       </tbody>
+    </table>
 
+
+ <table class="poketable">
+      <tbody>
       <tr class="base-spattack">
         <th>Special Attack ☄️ </th>
         <td>{{base.SpecialAttack}} </td>
@@ -117,7 +130,10 @@
         <th>Speed ⚡</th>  
         <td >{{base.Speed}}</td>
       </tr>
-    </tbody></table>
+    </tbody>
+    </table>
+
+    </div>
     
   </figcaption>
 </figure>
