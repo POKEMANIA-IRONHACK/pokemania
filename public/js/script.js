@@ -50,7 +50,6 @@ document.querySelectorAll(".card").forEach(card => {
     baseSpecialAttack: e.currentTarget.querySelector(".base-spattack").innerText,
     baseSpecialDefense: e.currentTarget.querySelector(".base-spdefense").innerText,
     baseSpeed: e.currentTarget.querySelector(".base-speed").innerText,
-    id: e.currentTarget.querySelector(".id").innerText
   }
 
 
@@ -91,13 +90,18 @@ function render() {
   console.log("I am rendering")
 }
 
+function test (){
+  console.log('test')
+}
 
 //save button
 const pickedTeamID = pickedTeam.map(document.querySelector('.id'))
 console.log(pickedTeamID)
 
+document.addEventListener('load', () => {
 const savedTeam = document.querySelector(".selector")
-  savedTeam.addEventListener("click", console.log('test'))
+  savedTeam.addEventListener("click", test)
+})
   //  axios
   //  .post('/user/team',{
   //  pickedTeamID: [] 

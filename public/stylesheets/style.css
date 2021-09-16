@@ -264,7 +264,13 @@ color: #222;
 
 .logout-btn{
 
-  size: 200px;
+height: 40px;
+width: 160px;
+background: lightcoral;
+border-radius: 10px;
+box-shadow: 0px 0px 5px #000;
+position: relative;
+top: 0;
 
 }
 
@@ -386,6 +392,10 @@ margin-block: 20px;
   background: #fff;
   float: left;
   
+
+
+
+  
   }
 
 
@@ -416,14 +426,34 @@ footer{
 
 .card-picked {
 
-  text-align: center;
-  transition: box-shadow .3s;
-  width: 300px;
-  height: 300px;
-  margin: 10px;
-  border-radius:10px;
-  border: 1px solid #ccc;
-  background: #fff;
-  float: left;
+
+  margin: 50px 50px 50px 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
   
   }
+
+.card-show{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  gap: 30px;
+}
+
+tbody th {
+  text-align: right;
+  font-size: smaller;
+}
+
+
+
+
+
+
+
+
+
+  
