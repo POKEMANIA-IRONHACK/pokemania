@@ -117,7 +117,7 @@ User.findOne({ username: username })
 
 // Logout
 router.get('/logout', (req, res, next) => {
-	console.log("test")
+	console.log()
 	// this logs the user out	
 	req.session.destroy(err => {
 		if (err) {
@@ -128,6 +128,24 @@ router.get('/logout', (req, res, next) => {
 		}
 	})
 });
-  
 
+
+// router.post('/main', (req, res, next) => {
+// 	const pokemonId = req.params.id;
+// 	const { name,type,imgUrl,base }= req.body
+// 	User.findByIdAndUpdate(User._id, {
+// 		title: titleFromInput,
+// 		description: descriptionFromInput,
+// 		author: authorFromInput,
+// 		rating: ratingFromInput
+// 	}, { new: true })
+// 		.then(updatedBook => {
+// 			console.log(updatedBook);
+// 			// redirect to the details route
+// 			res.redirect(`/books/${updatedBook._id}`);
+// 		})
+// 		.catch(err => {
+// 			next(err);
+// 		})
+//});
 module.exports = router;

@@ -50,6 +50,7 @@ document.querySelectorAll(".card").forEach(card => {
     baseSpecialAttack: e.currentTarget.querySelector(".base-spattack").innerText,
     baseSpecialDefense: e.currentTarget.querySelector(".base-spdefense").innerText,
     baseSpeed: e.currentTarget.querySelector(".base-speed").innerText,
+    imgUrl: e.currentTarget.querySelector(".card-image").innerHTML,
   }
 
 
@@ -71,7 +72,7 @@ document.querySelectorAll(".card").forEach(card => {
   console.log(`type of picked Team is ${typeof pickedTeam}`)
   console.log(`picked Team contains ${pickedTeam}`)
   console.log(`the length of the team is ${pickedTeam.length}`)
-    //console.log(e.currentTarget.innerText)
+  console.log(`${pickedPokemon.imgUrl}`)
     //console.log(pickedTeam)
     //console.log(pickedPokemon)
     // console.log(document.querySelector(".id").innerHTML)
@@ -83,11 +84,13 @@ document.querySelectorAll(".card").forEach(card => {
 
 // Render function
 function render() {
+  //const imgUrl = pokemon.imgUrl
   let list = ""
   pickedTeam.forEach(pokemon =>
-    list += `${pokemon.name} Type: ${pokemon.type} Base Stats: ${pokemon.baseHP} ${pokemon.baseAttack} ${pokemon.baseDefense} ${pokemon.baseSpecialAttack} ${pokemon.baseSpecialDefense} ${pokemon.baseSpeed}`)
+    list += `${pokemon.imgUrl}${pokemon.name} Type: ${pokemon.type} Base Stats: ${pokemon.baseHP} ${pokemon.baseAttack} ${pokemon.baseDefense} ${pokemon.baseSpecialAttack} ${pokemon.baseSpecialDefense} ${pokemon.baseSpeed}`)
   document.querySelector(".card-picked").innerHTML = list
-  console.log("I am rendering")
+  //console.log("I am rendering")
+  //console.log(pokemon.imgUrl);
 }
 
 function test (){
