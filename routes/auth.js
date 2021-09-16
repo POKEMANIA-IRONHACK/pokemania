@@ -68,7 +68,7 @@ User.findOne({ username: username })
 	if (bcrypt.compareSync(password, userFromDB.password)) {
 		// if it matches -> all credentials are correct
 		// we log the user in
-		//req.session.user = userFromDB;
+		req.session.user = userFromDB;
 		res.redirect('/main');
 	} else {
 		// if the password is not matching -> show the form again 

@@ -15,7 +15,7 @@ router.get("/", (req, res, next) => {
 router.get("/main", (req, res, next) => {
   Pokemon.find()
   .then(pokemonsFromDB => {
-    console.log(pokemonsFromDB);
+    //console.log(pokemonsFromDB);
     res.render('main', {pokemonList: pokemonsFromDB})
   })
 })
