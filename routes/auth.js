@@ -50,41 +50,21 @@ router.post("/signup", (req, res, next) => {
 });
 
 
-// session configuration
-
-// const session = require('express-session');
-// const MongoStore = require('connect-mongo');
-// const DB_URL = process.env.MONGO;
-
-// app.use(
-// 	session({
-// 		secret: process.env.SESSION_SECRET,
-// 		// for how long is the user logged in -> this would be one day 	
-// 		cookie: { maxAge: 1000 * 60 * 60 * 24 },
-// 		resave: true,
-// 		saveUninitialized: false,
-// 		store: MongoStore.create({
-// 			mongoUrl: DB_URL
-// 		})
-// 	})
-// )
-// end of session configuration
-
 
 
 // create a middleware to check if the user is logged in
-// const loginCheck = () => {
-// 	return (req, res, next) => {
-// 	  // is there a logged in user?
-// 	  if (req.session.user) {
-// 		// if yes -> proceed as requested
-// 		next();
-// 	  } else {
-// 		// if there is no logged in user -> redirect to login
-// 		res.redirect('/login');
-// 	  }
-// 	}
-//   }
+//  const loginCheck = () => {
+//  	return (req, res, next) => {
+//  	  // is there a logged in user?
+//  	  if (req.session.user) {
+//  		// if yes -> proceed as requested
+//  		next();
+//  	  } else {
+//  		// if there is no logged in user -> redirect to login
+//  		res.redirect('/login');
+//  	  }
+//  	}
+//}
 
 
 //   // this route is now protected -> can only be accessed by a logged in user
@@ -123,7 +103,8 @@ User.findOne({ username: username })
 	if (bcrypt.compareSync(password, userFromDB.password)) {
 		// if it matches -> all credentials are correct
 		// we log the user in
-		//req.session.user = userFromDB;
+		console.log(userFromDB)
+		req.session.user = userFromDB;
 		res.redirect('/main');
 	} else {
 		// if the password is not matching -> show the form again 
@@ -131,6 +112,21 @@ User.findOne({ username: username })
 		}
 	})
 });  
+
+
+
+// Logout
+router.get('/logout', (req, res, next) => {
+	// this logs the user out	
+	req.session.destroy(err => {
+		if (err) {
+			next(err);
+			// logout was successful -> we redirect
+		} else {
+			res.redirect('/');
+		}
+	})
+});
   
 
 module.exports = router;
