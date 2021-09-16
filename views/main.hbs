@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/public/stylesheets/style.css">
 </head>
+
 <body>
 
     <nav>
@@ -24,23 +25,23 @@
 	</div>
     </nav>
 
-<header>
+    <header>
 
-    <div class="intro">
+        <div class="intro">
 
-        <img src="images/2560px-International_Pokémon_logo.svg.png" alt="logo" style="height: 180px;">
-        <img src="images/3345f008909edd9cc8374969d15e1a8f.png" alt="logo" style="height: 70PX;">
+            <img src="images/2560px-International_Pokémon_logo.svg.png" alt="logo" style="height: 180px;">
+            <img src="images/3345f008909edd9cc8374969d15e1a8f.png" alt="logo" style="height: 70PX;">
 
 
-    </div>
+        </div>
 
-    <div class="intro-2">
+        <div class="intro-2">
 
-        <img  id="poke-image1" src="images/pokemon_PNG107.png" alt="pokeimage">
+            <img  id="poke-image1" src="images/pokemon_PNG107.png" alt="pokeimage">
 
-    </div>
+        </div>
 
-</header>
+    </header>
 
 <img src="" alt="">
 
@@ -62,7 +63,13 @@
         <div class="poke-filters">
             <h3> Filters </h3>
 
-        
+
+              <div id="searchWrapper">
+
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Pokemon..">
+
+            </div>
+
         </div>
 
 
@@ -104,5 +111,25 @@
     </div>
 </footer>
 </body>
+
+
+<script>
+
+function myFunction() {
+  var div;
+  input = document.getElementById('myInput');
+  div = document.getElementById("card");
+
+  for (i = 0; i < div.length; i++) {
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+
 </html>
 
