@@ -53,6 +53,8 @@ document.querySelectorAll(".card").forEach(card => {
     id: e.currentTarget.querySelector(".id").innerText
   }
 
+
+
   pickedTeam.push(pickedPokemon);
   //   pickedTeam.push(e.currentTarget.querySelector(".name").innerText);
   //   pickedTeam.push(e.currentTarget.querySelector(".type").innerText);
@@ -88,6 +90,18 @@ function render() {
   document.querySelector(".card-picked").innerHTML = list
   console.log("I am rendering")
 }
+
+
+//save button
+const pickedTeamID = pickedTeam.map(document.querySelector('.id'))
+console.log(pickedTeamID)
+
+const savedTeam = document.querySelector(".selector")
+  savedTeam.addEventListener("click", console.log('test'))
+  //  axios
+  //  .post('/user/team',{
+  //  pickedTeamID: [] 
+  //  }).then())
 
 // document.addEventListener('load', () => {
 //   const pokePick = document.getElementById('card');
