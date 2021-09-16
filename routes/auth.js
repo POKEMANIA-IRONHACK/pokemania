@@ -117,6 +117,7 @@ User.findOne({ username: username })
 
 // Logout
 router.get('/logout', (req, res, next) => {
+	console.log("test")
 	// this logs the user out	
 	req.session.destroy(err => {
 		if (err) {
