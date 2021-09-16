@@ -19,6 +19,24 @@ const app = express();
 require("./config")(app);
 
 
+ const session = require('express-session');
+ const MongoStore = require('connect-mongo');
+ const DB_URL = process.env.MONGODB_URI;
+
+ app.use(
+ 	session({
+ 		secret: process.env.SESSION_SECRET,
+ 		// for how long is the user logged in -> this would be one day 	
+ 		cookie: { maxAge: 1000 * 60 * 60 * 24 },
+ 		resave: true,
+ 		saveUninitialized: false,
+ 		store: MongoStore.create({
+ 			mongoUrl: DB_URL
+ 		})
+ 	})
+ )
+
+
 
 // default value for title local
 const projectName = "Pokemania";
