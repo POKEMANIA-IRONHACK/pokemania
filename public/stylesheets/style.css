@@ -21,6 +21,7 @@ nav {
   overflow:hidden;
   position: fixed;
   top: 0;
+  z-index: 2;
   transform: translateX(-300px);
   height: 100%;
   width: 400px;
@@ -259,6 +260,12 @@ color: #222;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.logout-btn{
+
+  size: 200px;
+
 }
 
 
