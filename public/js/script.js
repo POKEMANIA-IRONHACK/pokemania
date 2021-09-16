@@ -50,7 +50,6 @@ document.querySelectorAll(".card").forEach(card => {
     baseSpecialAttack: e.currentTarget.querySelector(".base-spattack").innerText,
     baseSpecialDefense: e.currentTarget.querySelector(".base-spdefense").innerText,
     baseSpeed: e.currentTarget.querySelector(".base-speed").innerText,
-    id: e.currentTarget.querySelector(".id").innerText
   }
 
   pickedTeam.push(pickedPokemon);

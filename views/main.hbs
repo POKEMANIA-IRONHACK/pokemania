@@ -23,6 +23,9 @@
 		<a href="" class="link"> Pokemon Stats</a>
         <br>
         <button href="/logout" class="logout-btn"> Logout </button>
+        <br>
+        <br>
+        <img src="images/2560px-International_Pokémon_logo.svg.png" alt="pokeimage" style="height: 70px;">
 	</div>
     </nav>
 
@@ -51,6 +54,7 @@
     <section class="team"> 
 
        <div class="card-picked" id="card-picked">
+           
 
         </div>
     
@@ -69,23 +73,66 @@
         </div>
 
 
-                
-                <div class="cardContainer">
-                {{#each pokemonList}}
-                <div class="card" id="card">
-                <h1 class="name">{{name.english}}</h1>
-                <h1 class="type"> {{type}} </h1>
-                <h1 class="base-hp"> HP: {{base.HP}} </h1>
-                <h1 class="base-attack"> Attack: {{base.Attack}} </h1>
-                <h1 class="base-defense"> Defense: {{base.Defense}} </h1>
-                <h1 class="base-spattack"> Special Attack: {{base.SpecialAttack}} </h1>
-                <h1 class="base-spdefense"> Special Defense: {{base.SpecialDefense}} </h1>
-                <h1 class="base-speed"> Speed: {{base.Speed}} </h1>
-                <div class="id" style="visibility: hidden">
-                {{_id}}
-                </div>
-                </div>
-                 {{/each}}
+<div class="cardContainer">  
+
+
+{{#each pokemonList}}
+<figure class="card">
+  <div class="image-container">
+  </div>
+  
+  <figcaption>
+    <h1 class="name"> {{name.english}} </h1>
+
+    <h3 class="type">
+      {{type}}
+    </h3>
+
+    <table>
+      <tbody>
+    <tr class="base-hp">
+        <th>HP ❤️</th>
+        <td> {{base.HP}}</td>
+    </tr>
+
+      <tr  class="base-attack">
+        <th>Attack ⚔️ </th>
+        <td>{{base.Attack}} </td>
+      </tr>
+      
+      <tr class="base-defense">
+        <th>Defense 🛡️</th>
+        <td>{{base.Defense}}</td>
+      </tr>
+
+      <tr class="base-spattack">
+        <th>Special Attack ☄️ </th>
+        <td>{{base.SpecialAttack}} </td>
+      </tr>
+      <tr class="base-spdefense">
+        <th>Special Defense 💫</th>
+        <td>{{base.SpecialDefense}} </td>
+      </tr>
+      <tr class="base-speed">
+        <th>Speed ⚡</th>  
+        <td >{{base.Speed}}</td>
+      </tr>
+    </tbody></table>
+    
+  </figcaption>
+</figure>
+ {{/each}}
+
+
+
+
+    
+
+
+
+
+
+
             {{!-- {{#each pokemon}}
                 <div class="card">
                    <p>{{this.name}}</p>
@@ -93,7 +140,7 @@
                 </div> 
             {{/each}} --}}
 
-        </div>
+    
 
 
 
