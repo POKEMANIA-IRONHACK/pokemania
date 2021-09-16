@@ -50,6 +50,7 @@ document.querySelectorAll(".card").forEach(card => {
     baseSpecialAttack: e.currentTarget.querySelector(".base-spattack").innerText,
     baseSpecialDefense: e.currentTarget.querySelector(".base-spdefense").innerText,
     baseSpeed: e.currentTarget.querySelector(".base-speed").innerText,
+    //imgUrl: e.currentTarget.querySelector(".img").innerHTML,
   }
 
   pickedTeam.push(pickedPokemon);
@@ -86,6 +87,7 @@ function render() {
     list += `${pokemon.name} Type: ${pokemon.type} Base Stats: ${pokemon.baseHP} ${pokemon.baseAttack} ${pokemon.baseDefense} ${pokemon.baseSpecialAttack} ${pokemon.baseSpecialDefense} ${pokemon.baseSpeed}`)
   document.querySelector(".card-picked").innerHTML = list
   console.log("I am rendering")
+  //console.log(`${pokemon.imgUrl}`);
 }
 
 // document.addEventListener('load', () => {

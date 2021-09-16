@@ -11,7 +11,8 @@ const pokemonSchema = new Schema({
       SpecialAttack: Number,
       SpecialDefense: Number,
       Speed: Number
-  }
+  },
+  imgUrl: String
 });
 
 const Pokemon = model("Pokemontest", pokemonSchema);

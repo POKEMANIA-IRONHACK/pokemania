@@ -1,4 +1,4 @@
-body{
+body {
     height: 100vh;
     font-family: sans-serif;
     background-size: cover;
@@ -9,7 +9,7 @@ body{
     top: 2;
 }
 
-//* displaying the menu bar *//
+/* displaying the menu bar */
 
 * {
   box-sizing: border-box;
@@ -449,7 +449,10 @@ tbody th {
 }
 
 
-
+.img {
+  height: 15%;
+  width: 15%;
+}
 
 
 
