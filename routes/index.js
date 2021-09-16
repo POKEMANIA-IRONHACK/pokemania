@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const P = new Pokedex();
 const axios = require("axios");
 const Pokemon = require("../models/Pokemon");
 
