@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, SchemaTypes } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema({
@@ -7,7 +7,10 @@ const userSchema = new Schema({
     // unique: true -> Ideally, should be unique, but its up to you
   },
   password: String,
-  teams: Array
+  teams: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Pokemon'
+  }]
 });
 
 const User = model("User", userSchema);
