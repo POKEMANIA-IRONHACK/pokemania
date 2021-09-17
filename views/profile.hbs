@@ -1,0 +1,68 @@
+<h1>Hey {{user.username}}, here is your team</h1>
+{{#each pokemonlist}}
+
+<figure class="card">
+  <div class="image-container">
+  </div>
+  
+  <figcaption>
+    <h1 class="name"> {{name.english}} </h1>
+
+    <div class="card-image">
+
+
+        <img src={{imgUrl}} alt="broken image" class="img">
+
+    </div>
+
+    <h3 class="type">
+      {{type}}
+    </h3>
+
+    <div class="card-show">
+
+    <table class="poketable">
+      <tbody>
+    <tr class="base-hp">
+        <th>HP ❤️</th>
+        <td>{{base.HP}}</td>
+    </tr>
+
+      <tr  class="base-attack">
+        <th>Attack ⚔️ </th>
+        <td>{{base.Attack}} </td>
+      </tr>
+      
+      <tr class="base-defense">
+        <th>Defense 🛡️</th>
+        <td>{{base.Defense}}</td>
+      </tr>
+       </tbody>
+    </table>
+
+
+ <table class="poketable">
+      <tbody>
+      <tr class="base-spattack">
+        <th>Special Attack ☄️ </th>
+        <td>{{base.SpecialAttack}} </td>
+      </tr>
+      <tr class="base-spdefense">
+        <th>Special Defense 💫</th>
+        <td>{{base.SpecialDefense}} </td>
+      </tr>
+      <tr class="base-speed">
+        <th>Speed ⚡</th>  
+        <td >{{base.Speed}}</td>
+      </tr>
+        <div class="id">
+                {{_id}}
+                </div>
+    </tbody>
+    </table>
+
+    </div>
+    
+  </figcaption>
+</figure>
+{{/each}}

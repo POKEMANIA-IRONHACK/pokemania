@@ -1,14 +1,29 @@
+const User = require("../models/User.model");
+const Pokemon = require("../models/Pokemon");
 const router = require("express").Router();
 const axios = require("axios");
-const { read } = require("fs");
-const Pokemon = require("../models/Pokemon");
-const User = require("../models/User.model");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index")
 })
 
+
+router.get('/profile', (req, res, next) => {
+  User.findById(req.session.user._id)
+    .then(async user => {
+      console.log(user)
+      const pokemons = [];
+      for (let id of user.teams) {
+        const pokemon = await Pokemon.findById(id);
+
+        pokemons.push(pokemon);
+        console.log(pokemons);
+      }
+      res.render('profile', { user, pokemonlist: pokemons })
+    })
+    .catch(err => next(err));
+})
 
 router.post('/api/user', (req, res) => {
   User.findByIdAndUpdate(req.session.user._id, { teams: req.body.pickedIds })

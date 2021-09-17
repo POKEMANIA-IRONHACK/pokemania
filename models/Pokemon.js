@@ -6,12 +6,12 @@ const pokemonSchema = new Schema({
   type: Array,
   imgUrl: String,
   base: {
-      HP: Number,
-      Attack: Number,
-      Defense: Number,
-      SpecialAttack: Number,
-      SpecialDefense: Number,
-      Speed: Number
+    HP: Number,
+    Attack: Number,
+    Defense: Number,
+    SpecialAttack: Number,
+    SpecialDefense: Number,
+    Speed: Number
   }
 });
 

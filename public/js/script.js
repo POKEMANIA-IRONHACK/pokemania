@@ -32,17 +32,12 @@ const pickedTeam = [];
 
 //
 
-document.querySelector('.selector').addEventListener('click', () => {
+document.querySelector('.save').addEventListener('click', async () => {
   const pickedIds = pickedTeam.map(pokemon => pokemon._id);
-  axios.post('/api/user', { pickedIds })
-    .then(() => {
-
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  // console.log(pickedTeam);
+  alert('Team was added');
+  await axios.post('/api/user', { pickedIds });
 })
+
 document.querySelectorAll(".card").forEach(card => {
   card.addEventListener("click", e => {
     const pickedPokemon = {
