@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/public/stylesheets/style.css">
-</head>
-<body>
 
     <nav>
 	<div class="menu-btn">
@@ -70,14 +60,13 @@
 
 
 
-    <form action = "submit" method = "post">
-        <button class="selector" id="Save">Save Team</button>
-    <form>
-
 
 
     <h2> Your Options ss</h2>
 
+<div class="container">
+        <button class="selector">Save Team</button>
+</div>
         <div class="poke-filters">
             <h3> Filters </h3>
 
@@ -143,6 +132,9 @@
         <th>Speed ⚡</th>  
         <td >{{base.Speed}}</td>
       </tr>
+        <div class="id">
+                {{_id}}
+                </div>
     </tbody>
     </table>
 
@@ -194,6 +186,5 @@
     <img src="images/bulbasur.png" alt="pokeimage" height="200px" style="margin-top: 150px;">
     </div>
 </footer>
-</body>
-</html>
+
 

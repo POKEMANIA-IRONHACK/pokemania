@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const axios = require("axios");
+const { read } = require("fs");
 const Pokemon = require("../models/Pokemon");
+const User = require("../models/User.model");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -8,14 +10,20 @@ router.get("/", (req, res, next) => {
 })
 
 
+router.post('/api/user', (req, res) => {
+  User.findByIdAndUpdate(req.session.user._id, { teams: req.body.pickedIds })
+    .then(user => console.log(user))
+    .catch(err => next(err));
+})
+
 // GET TEST POKEMON FROM DB
 
 router.get("/main", (req, res, next) => {
   Pokemon.find()
-  .then(pokemonsFromDB => {
-    console.log(pokemonsFromDB[0]);
-    res.render('main', {pokemonList: pokemonsFromDB})
-  })
+    .then(pokemonsFromDB => {
+      console.log(pokemonsFromDB[0]);
+      res.render('main', { pokemonList: pokemonsFromDB })
+    })
 })
 
 // //Get API data
