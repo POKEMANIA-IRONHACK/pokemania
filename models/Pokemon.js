@@ -5,6 +5,7 @@ const pokemonSchema = new Schema({
   name: Object,
   type: Array,
   imgUrl: String,
+  _id: String,
   base: {
       HP: Number,
       Attack: Number,
